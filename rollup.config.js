@@ -10,7 +10,7 @@ const config = (mode) => ({
     format: 'cjs',
     exports: 'named',
   },
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-native'],
   plugins: [
     babel({
       presets: [
@@ -37,7 +37,7 @@ const config = (mode) => ({
     },
     nodeResolve(),
     commonjs(),
-    mode === 'development' ? undefined : terser(),
+    mode === 'development' ? undefined : terser({mangle: false}),
   ],
 });
 
